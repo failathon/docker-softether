@@ -1,9 +1,9 @@
 # SoftEther VPN server
 
 FROM debian:8
-MAINTAINER Frank Rosquin <frank.rosquin@gmail.com>
+MAINTAINER Luke Walker <luke@blackduck.nu>
 
-ENV VERSION v4.15-9546-beta-2015.04.05
+ENV VERSION v4.17-9566-beta-2015.07.16
 WORKDIR /usr/local/vpnserver
 
 
