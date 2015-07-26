@@ -51,11 +51,4 @@ Wait for ECS to spawn your new service
 
 ## Running direct from EC2 instance
 
-Simplest version:
-
     docker run -d -e VPNUSER=<userhere> -e VPNPASS=<passhere> --net host --name softether failathon/softether
-
-If you want to keep the logs in a data container hosted on EBS:
-
-    docker run -d --name vpn-logs --volume /var/log/vpnserver busybox:latest /bin/true
-    docker run -d --name vpn-server -e VPNUSER=<userhere> -e VPNPASS=<passhere> --volumes-from vpn-logs failathon/softether
