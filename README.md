@@ -10,7 +10,7 @@ This project also lives in Docker hub as [failathon/softether](https://registry.
 
 ## Run in ECS
 
-### Create a ECS Task Definition
+### First, Create a ECS Task Definition
 
 #### Container Definition
 
@@ -24,7 +24,21 @@ This project also lives in Docker hub as [failathon/softether](https://registry.
   * VPNUSER=your_user_here
   * VPNPASS=your_password_here
         
-#### EC2 Instance for ECS 101
+### Second, Create a Cluster
+1. Create a cluster with any name you prefer
+2. Within the cluster, now create a service, selecting the task definition you created before (i.e. softether-task:1)
+3. Set the service name to a name you prefer (i.e. softether-service)
+4. Set the number of tasks to 1 - this will create a single VPN service hosted on a single 
+5. Leave the Load Balancer set to __No ELB__
+
+### Third, Drink your coffee and prepare to connect
+:) Wait for ECS to spawn your new service
+
+## Running direct from EC2 instance
+
+    docker run -d -e VPNUSER=<userhere> -e VPNPASS=<passhere> --net host --name softether failathon/softether
+
+## EC2 Instance for ECS 101
 For those who have not used ECS before, ensure that:
 
 * Use an ECS-optimized AMI (ie. ami-27212417 in Community AMIs)
@@ -37,18 +51,4 @@ For those who have not used ECS before, ensure that:
 ```bash
 #!/bin/bash
 echo ECS_CLUSTER=cluster_name_here >> /etc/ecs/ecs.config
-```        
-
-### Cluster Creation
-1. Create a cluster with any name you prefer
-2. Within the cluster, now create a service, selecting the task definition you created before (i.e. softether-task:1)
-3. Set the service name to a name you prefer (i.e. softether-service)
-4. Set the number of tasks to 1 - this will create a single VPN service hosted on a single 
-5. Leave the Load Balancer set to __No ELB__
-
-Wait for ECS to spawn your new service
-
-
-## Running direct from EC2 instance
-
-    docker run -d -e VPNUSER=<userhere> -e VPNPASS=<passhere> --net host --name softether failathon/softether
+```
