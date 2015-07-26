@@ -22,6 +22,9 @@ Will deploy a fully functional [SoftEther VPN](https://www.softether.org) server
 4. set Memory to 750
 5. enable Essential
 6. set Port Mappings to 443:443 TCP (Host:Container) and 1194:1194 UDP
+7. set Environment Variables
+  * VPNUSER=your_user_here
+  * VPNPASS=your_password_here
         
 #### EC2 Instance for ECS 101
 For those who have not used ECS before, ensure that:
@@ -48,30 +51,13 @@ echo ECS_CLUSTER=cluster_name_here >> /etc/ecs/ecs.config
 Wait for ECS to spawn your new service
 
 
-### First-user creation
-* Login to the EC2 instance as ec2-user
-* 
-
-
-## Running from EC2
+## Running direct from EC2 instance
 
 Simplest version:
 
-    docker run -d --net host --name softether failathon/softether
+    docker run -d -e VPNUSER=<userhere> -e VPNPASS=<passhere> --net host --name softether failathon/softether
 
-With external config file:
+If you want to keep the logs in a data container hosted on EBS:
 
-    touch /etc/vpnserver/vpn_server.config
-    docker run -d -v /etc/vpnserver/vpn_server.config:/usr/local/vpnserver/vpn_server.config --net host --name softether failathon/softether
-
-If you want to keep the logs in a data container:
-
-    docker run -d --name softether-logs --volume /var/log/vpnserver busybox:latest /bin/true
-    docker run -d --net host --name softether --volumes-from softether-logs failathon/softether
-
-All together now:
-
-    touch /etc/vpnserver/vpn_server.config
-    docker run -d --name softether-logs --volume /var/log/vpnserver busybox:latest /bin/true
-    docker run -d -v /etc/vpnserver/vpn_server.config:/usr/local/vpnserver/vpn_server.config --volumes-from softether-logs --net host --name softether failathon/softether
-
+    docker run -d --name vpn-logs --volume /var/log/vpnserver busybox:latest /bin/true
+    docker run -d --name vpn-server -e VPNUSER=<userhere> -e VPNPASS=<passhere> --volumes-from vpn-logs failathon/softether
