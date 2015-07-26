@@ -34,6 +34,9 @@ This project also lives in Docker hub as [failathon/softether](https://registry.
 ### Third, Drink your coffee and prepare to connect
 :) Wait for ECS to spawn your new service
 
+
+# Alternate methods and other tidbits
+
 ## Running direct from EC2 instance
 
     docker run -d -e VPNUSER=<userhere> -e VPNPASS=<passhere> --net host --name softether failathon/softether
