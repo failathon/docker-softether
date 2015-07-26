@@ -6,6 +6,8 @@ Will deploy a fully functional [SoftEther VPN](https://www.softether.org) server
 
 ![overview diagram](https://raw.githubusercontent.com/failathon/docker-softether/master/misc/overview.png)
 
+This project also lives in Docker hub as [failathon/softether](https://registry.hub.docker.com/u/failathon/softether/)
+
 ## Run in ECS
 
 ### Create a ECS Task Definition
