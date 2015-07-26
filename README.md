@@ -1,12 +1,14 @@
 # Docker image for SoftEther VPN
 
-Credit to cnf, this image is a fork from https://github.com/cnf/docker-softether
+Credit to cnf, this image is a fork from https://github.com/cnf/docker-softether, and to the SoftEther VPN project for providing an easy and extensible VPN platform for me to use :)
 
 Will deploy a fully functional [SoftEther VPN](https://www.softether.org) server as a docker image and is intended for deployment on Amazon Web Service's EC2 Container Service (ECS), but could be deployed anywhere.
 
 ![overview diagram](https://raw.githubusercontent.com/failathon/docker-softether/master/misc/overview.png)
 
 This project also lives in Docker hub as [failathon/softether](https://registry.hub.docker.com/u/failathon/softether/)
+
+Use the SoftEther VPN client from https://www.softether.org/5-download to connect to this service.
 
 ## Run in ECS
 
