@@ -1,6 +1,7 @@
 # SoftEther VPN server
 
 FROM centos:centos7
+
 MAINTAINER Luke Walker <luke@blackduck.nu>
 
 ENV VERSION v4.17-9566-beta-2015.07.16
