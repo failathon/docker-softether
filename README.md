@@ -39,7 +39,7 @@ This project also lives in Docker hub as [failathon/softether](https://registry.
 
 ## Running direct from EC2 instance
 
-    docker run -d -e VPNUSER=<userhere> -e VPNPASS=<passhere> --net host --name softether failathon/softether
+    docker run -d -e VPNUSER=<userhere> -e VPNPASS=<passhere> --net host --name vpn-server failathon/softether
 
 ## EC2 Instance for ECS 101
 For those who have not used ECS before, ensure that:
