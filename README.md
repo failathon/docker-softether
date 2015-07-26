@@ -16,7 +16,7 @@ This project also lives in Docker hub as [failathon/softether](https://registry.
 
 1. set Container Name to desired name
 2. set Image to failathon/softether
-3. set CPU units to 500
+3. set CPU units to 900
 4. set Memory to 750
 5. enable Essential
 6. set Port Mappings to 443:443 TCP (Host:Container) and 1194:1194 UDP
