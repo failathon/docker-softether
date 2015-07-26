@@ -8,7 +8,7 @@ Will deploy a fully functional [SoftEther VPN](https://www.softether.org) server
 
 This project also lives in Docker hub as [failathon/softether](https://registry.hub.docker.com/u/failathon/softether/)
 
-Use the SoftEther VPN client from https://www.softether.org/5-download to connect to this service.
+Use the SoftEther VPN client from [https://www.softether.org/5-download](https://www.softether.org/5-download) to connect to this service.
 
 ## Run in ECS
 
