@@ -4,7 +4,7 @@ FROM centos:centos7
 
 MAINTAINER Luke Walker <luke@blackduck.nu>
 
-ENV VERSION v4.20-9608-rtm-2016.04.17
+ENV VERSION v4.24-9652-beta-2017.12.21
 WORKDIR /usr/local/vpnserver
 
 RUN yum -y update && \
