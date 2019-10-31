@@ -1,3 +1,6 @@
+# This repository is now considered deprecated, and I recommend a shift to https://www.wireguard.com/
+# v4.29-9680-rtm-2019.02.28 will be the last softether version bump for this image
+
 # Docker image for SoftEther VPN
 
 Credit to cnf, this image is a fork from https://github.com/cnf/docker-softether, and to the SoftEther VPN project for providing an easy and extensible VPN platform for me to use :)
@@ -8,7 +11,7 @@ Will deploy a fully functional [SoftEther VPN](https://www.softether.org) server
 
 This project also lives in Docker hub as [failathon/softether](https://registry.hub.docker.com/u/failathon/softether/)
 
-Use the SoftEther VPN client from [https://www.softether.org/5-download](https://www.softether.org/5-download) to connect to this service.
+Use the SoftEther VPN client from [https://www.softether.org/5-download](https://www.softether.org/5-download) to connect to this service, or your PPTP VPN client for iOS.
 
 ## Run in ECS
 
@@ -41,7 +44,7 @@ Use the SoftEther VPN client from [https://www.softether.org/5-download](https:/
 
 ## Running direct from EC2 instance
 
-    docker run -d -e VPNUSER=<userhere> -e VPNPASS=<passhere> --net host --name vpn-server failathon/softether
+    docker run -d -e VPNUSER=<userhere> -e VPNPASS=<passhere> --net host --privileged --name vpn-server failathon/softether
 
 ## EC2 Instance for ECS 101
 For those who have not used ECS before, ensure that:
