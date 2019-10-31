@@ -2,14 +2,14 @@
 
 FROM centos:centos7
 
-MAINTAINER Luke Walker <luke@blackduck.nu>
+LABEL maintainer="luke@lwalker.me"
 
-ENV VERSION v4.25-9656-rtm-2018.01.15
+ENV VERSION v4.29-9680-rtm-2019.02.28
 WORKDIR /usr/local/vpnserver
 
 RUN yum -y update && \
 	yum clean all && \
-	yum -y install gcc make && \
+	yum -y install gcc make iptables && \
 	curl http://www.softether-download.com/files/softether/${VERSION}-tree/Linux/SoftEther_VPN_Server/64bit_-_Intel_x64_or_AMD64/softether-vpnserver-${VERSION}-linux-x64-64bit.tar.gz -o /tmp/softether-vpnserver.tar.gz &&\
         tar -xzvf /tmp/softether-vpnserver.tar.gz -C /usr/local/ &&\
         rm /tmp/softether-vpnserver.tar.gz &&\
